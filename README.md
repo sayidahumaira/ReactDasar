@@ -1,6 +1,8 @@
 # Getting Started React Props Dasar
 
-Contoh mudah membuat props di react js.
-Membuat Reusable Component
+-- COMING SOON --
 
 ## npm run start
+
+
+#### Give thanks to termux & Acode tab a8 2017
