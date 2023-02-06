@@ -1,22 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
+import {useState} from 'react';
 
 
 
 function App() {
-    
-    // Buat handleClick fungsi di dalam fungsi
-    function myButton(){
-        function handleClick() {
-            alert('You clicked me!');
-            
-        return(
-            <button onClick={ handleClick } className="tombol-satu">
-                Kiss Me...
-            </button>
-            )
-    }}
     
     // variabel obj yg ingin di display
     const akun = {
@@ -30,7 +18,7 @@ function App() {
     
     // array Object buat renderlist
     const produks = [
-        { title: 'Cabbage', isFruit: false, id: 1 },
+        { title: 'HTML', isFruit: false, id: 1 },
         { title: 'Garlic', isFruit: false, id: 2 },
         { title: 'Apple', isFruit: true, id: 3 },
     ];
@@ -42,8 +30,13 @@ function App() {
          {produk.title}
         </li>
     );
+
+    // buat tombol props
+    const [count, setCount] = useState(0);
     
-    let tombolKeduaSama = myButton();
+    function handleClick() {
+        setCount(count + 1);
+    }
 
     
   return (
@@ -61,9 +54,7 @@ function App() {
         }}
       />
       
-      
     <p>{listItems }</p>
-         
 
     {sudahLogin ? (
         <h2>Anda Berhasil Login</h2>
@@ -71,15 +62,21 @@ function App() {
          <h2>Anda gagal login</h2>
     )}
      
-    <button onClick={tombolKeduaSama} className="tombol-satu">
-            Kiss Me...
-    </button>
+     
+      <MyButton count={count} onClick={handleClick} />
+      <MyButton count={count} onClick={handleClick} />
     
-    
-        
-    </div>
+</div>
   ); // return
 }; // app
 
+
+function MyButton({ count, onClick }) {
+  return (
+    <button onClick={onClick}>
+      Clicked {count} times
+    </button>
+  );
+}
 
 export default App;

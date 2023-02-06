@@ -6,15 +6,6 @@
   text-align: center;
 }
 
-.tombol-satu{
-    text-align: center;
-    background-color: black;
-    color : white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 8px;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
