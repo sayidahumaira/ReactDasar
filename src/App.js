@@ -8,7 +8,7 @@ function App() {
     
     // variabel obj yg ingin di display
     const akun = {
-        name: 'Ayana Shahab',
+        name: 'Mona Nabilah',
         imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
         imageSize: 90,
     }
