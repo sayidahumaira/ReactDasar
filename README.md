@@ -1,6 +1,5 @@
-# Getting Started React Props Dasar
+# Getting Started Import Export
 
-Contoh mudah membuat props di react js.
-Membuat Reusable Component
+Cara Import export di react js
 
 ## npm run start
