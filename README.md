@@ -1,5 +1,9 @@
-# Getting Started Import Export
+# Getting Started Props
 
-Cara Import export di react js
+Pass props to children components
+Destructuring to props 
+Passing JSX as children
+props not always static
+use {{}} on props object or inline css
 
 ## npm run start

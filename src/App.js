@@ -1,13 +1,27 @@
 import React from 'react';
 import './App.css';
-// import Gallery from './components/Gallery.js';
-import Todolist from './components/Todolist.js';
+import Avatar from './components/Avatar.js';
 
-export default function App() {
+function Card({ children }) {
   return (
-    <Todolist />
+    <div className="card">
+      {children}
+    </div>
   );
 }
 
+export default function Profile() {
+  return (
+    <Card>
+      <Avatar
+        size={100}
+        person={{ 
+          name: 'Katsuko Saruhashi',
+          imageId: 'YfeOqp2'
+        }}
+      />
+    </Card>
+  );
+}
 
 
