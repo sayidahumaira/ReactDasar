@@ -1,42 +1,27 @@
 import React from 'react';
 import './App.css';
+import { people } from './components/data.js';
+import { getImageUrl } from './components/utils.js';
 
-function Item({ name, isPacked }) {
+export default function App(){
+        
+    const listItems = people.map(person =>
+      <li key={person.id}>
+         <img
+           src={getImageUrl(person)}
+           alt={person.name}
+         />
+         <p>
+           <b>{person.name}:</b>
+           {' ' + person.profession + ' '}
+           known for {person.accomplishment}
+         </p>
+      </li>
+);
     
-let itemContent = name;
-
-  if (isPacked) {
-    itemContent = name + " ✔";
-  }
-    
-  return (
-        <li className="item">
-          {itemContent}
-        </li>
-  );
-}
-
-
-export default function PackingList() {
-  return (
-    <section>
-      <h1>Ayana Ride's Packing List</h1>
-      <ul>
-        <Item 
-          isPacked={true} 
-          name="Space suit" 
-        />
-        <Item 
-          isPacked={true} 
-          name="Helmet with a golden leaf" 
-        />
-        <Item 
-          isPacked={false} 
-          name="Photo of Tam" 
-        />
-      </ul>
-    </section>
-  );
-}
-
+    return(
+        <ul>{listItems}</ul>
+        );
+        
+}//App
 
