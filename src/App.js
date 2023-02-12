@@ -1,40 +1,33 @@
-import { useState } from 'react';
-import { contohData } from './components/data.js';
+import {useState} from 'react';
 
 export default function App() {
-  const [index, setIndex] = useState(0);
-  const [showMore, setShowMore] = useState(false);
+  const [to, setTo] = useState('Ayana');
+  const [pesan, setPesan] = useState('Hello');
 
-  function handleNextClick() {
-    setIndex(index + 1);
+  function handleSubmit(e) {
+    e.preventDefault();
+    setTimeout(() => {
+      alert(`You said ${pesan} to ${to}`);
+    }, 1500);
   }
 
-  function handleMoreClick() {
-    setShowMore(!showMore);
-  }
-
-    // data JSON 
-  let dataKarosel = contohData[index];
   return (
-    <>
-      <button onClick={handleNextClick}>
-        Next
-      </button>
-      <h2>
-        <i>{dataKarosel.name} </i>
-        by {dataKarosel.artist}
-      </h2>
-      <h3>
-        ({index + 1} of {contohData.length})
-      </h3>
-      <button onClick={handleMoreClick}>
-        {showMore ? 'Hide' : 'Show'} details
-      </button>
-      {showMore && <p>{dataKarosel.description}</p>}
-      <img
-        src={dataKarosel.url}
-        alt={dataKarosel.alt}
+    <form onSubmit={handleSubmit}>
+      <label>
+        To:{' '}
+        <select
+          value={to}
+          onChange={e => setTo(e.target.value)}>
+          <option value="Ayana">Ayana</option>
+          <option value="Balqis">Balqis</option>
+        </select>
+      </label>
+      <textarea
+        placeholder="Message"
+        value={pesan}
+        onChange={e => setPesan(e.target.value)}
       />
-    </>
+      <button type="submit">Send</button>
+    </form>
   );
 }
