@@ -1,31 +1,40 @@
-import React from 'react';
+import { useState } from 'react';
+import { contohData } from './components/data.js';
 
 export default function App() {
-  return (
-    <TombolSimple
-      onPlayMovie={() => alert('Playing!')}
-      onUploadImage={() => alert('Uploading!')}
-    />
-  );
-}
+  const [index, setIndex] = useState(0);
+  const [showMore, setShowMore] = useState(false);
 
-function TombolSimple({ onPlayMovie, onUploadImage }) {
-  return (
-    <div>
-      <Button onClick={onPlayMovie}>
-        Play Movie
-      </Button>
-      <Button onClick={onUploadImage}>
-        Upload Image
-      </Button>
-    </div>
-  );
-}
+  function handleNextClick() {
+    setIndex(index + 1);
+  }
 
-function Button({ onClick, children}) {
+  function handleMoreClick() {
+    setShowMore(!showMore);
+  }
+
+    // data JSON 
+  let dataKarosel = contohData[index];
   return (
-    <button onClick={onClick}>
-      {children}
-    </button>
+    <>
+      <button onClick={handleNextClick}>
+        Next
+      </button>
+      <h2>
+        <i>{dataKarosel.name} </i>
+        by {dataKarosel.artist}
+      </h2>
+      <h3>
+        ({index + 1} of {contohData.length})
+      </h3>
+      <button onClick={handleMoreClick}>
+        {showMore ? 'Hide' : 'Show'} details
+      </button>
+      {showMore && <p>{dataKarosel.description}</p>}
+      <img
+        src={dataKarosel.url}
+        alt={dataKarosel.alt}
+      />
+    </>
   );
 }
